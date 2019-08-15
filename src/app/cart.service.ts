@@ -23,5 +23,8 @@ export class CartService {
   constructor(
       private http: HttpClient
   ) {}
-
+  
+  getShippingPrices() {
+    return this.http.get('/assets/shipping.json');
+  }
 }
