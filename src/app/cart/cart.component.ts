@@ -11,6 +11,7 @@ import { FormBuilder } from '@angular/forms';
 export class CartComponent implements OnInit {
   items;
   checkoutForm;
+
   constructor(private cartService: CartService,
               private formBuilder: FormBuilder,) 
   {
@@ -20,6 +21,16 @@ export class CartComponent implements OnInit {
       address: ''
     });
   }
+
+   onSubmit(customerData) {
+    // Process checkout data here
+    console.warn('Your order has been submitted', customerData);
+
+    this.items = this.cartService.clearCart();
+    this.checkoutForm.reset();
+  }
+
+
   ngOnInit() {
   }
 
